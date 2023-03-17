@@ -1,7 +1,19 @@
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
 }
+
+.dark-theme {
+  --background-color: #212529;
+  --text-color: #f8f9fa;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
 
 #categoryForm {
   display: inline-block;

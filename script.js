@@ -82,3 +82,10 @@ categoryForm.addEventListener('submit', (event) => {
 
 
 spinButton.addEventListener('click', spinWheel);
+
+const toggleDarkModeButton = document.getElementById('toggleDarkMode');
+
+toggleDarkModeButton.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark-theme');
+});
+
