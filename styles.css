@@ -30,7 +30,7 @@ canvas {
   border: 2px solid #000;
 }
 
-#arrow {
+/* #arrow {
   position: absolute;
   width: 0;
   height: 0;
@@ -40,6 +40,20 @@ canvas {
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-bottom: 20px solid #000;
+  z-index: 10;
+} */
+
+#arrow {
+/* use the fox image in the images folder as the pointer */
+  background-image: url("./assets/images/fox.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 50%;
+  top: calc(55%);
+  transform: translateX(-50%);
   z-index: 10;
 }
 
