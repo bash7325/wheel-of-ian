@@ -15,16 +15,34 @@ function drawWheel(rotation) {
   const centerY = wheelCanvas.height / 2;
   const radius = Math.min(centerX, centerY);
 
+  ctx.font = '16px Arial';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+
   categories.forEach((category, index) => {
+    const startAngle = ((index / categories.length) * Math.PI * 2) + rotation;
+    const endAngle = (((index + 1) / categories.length) * Math.PI * 2) + rotation;
+    const middleAngle = (startAngle + endAngle) / 2;
+
+    // Draw the wheel segment
     ctx.beginPath();
-    ctx.arc(centerX, centerY, radius, ((index / categories.length) * Math.PI * 2) + rotation, (((index + 1) / categories.length) * Math.PI * 2) + rotation);
+    ctx.arc(centerX, centerY, radius, startAngle, endAngle);
     ctx.lineTo(centerX, centerY);
     ctx.closePath();
 
     ctx.fillStyle = `hsl(${index / categories.length * 360}, 100%, 50%)`;
     ctx.fill();
+
+    // Draw the category name
+    ctx.fillStyle = '#000';
+    ctx.save();
+    ctx.translate(centerX + Math.cos(middleAngle) * radius * 0.6, centerY + Math.sin(middleAngle) * radius * 0.6);
+    ctx.rotate(middleAngle + Math.PI / 2);
+    ctx.fillText(category, 0, 0);
+    ctx.restore();
   });
 }
+
 
 function spinWheel() {
   const spinDuration = 5000; // Spin duration in milliseconds
