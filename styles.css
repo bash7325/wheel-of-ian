@@ -1,0 +1,19 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+#categoryForm {
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+#categoryList {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+canvas {
+  border: 2px solid #000;
+}
