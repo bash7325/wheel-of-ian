@@ -74,13 +74,11 @@ categoryForm.addEventListener('submit', (event) => {
   const category = categoryInput.value.trim();
   if (category) {
     categories.push(category);
-    const listItem = document.createElement('li');
-    listItem.textContent = category;
-    categoryList.appendChild(listItem);
     drawWheel(0);
     spinButton.disabled = false;
   }
   categoryInput.value = '';
 });
+
 
 spinButton.addEventListener('click', spinWheel);
