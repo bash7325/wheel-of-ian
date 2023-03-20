@@ -83,17 +83,23 @@ function spinWheel() {
   requestAnimationFrame(animate);
 }
 
-//event listener for the category form
+// Event listener for the category form. Can add as many categories as you want at once with comma separation
 categoryForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  const category = categoryInput.value.trim();
-  if (category) {
-    categories.push(category);
-    drawWheel(0);
-    spinButton.disabled = false;
-  }
+  const categoryInputValue = categoryInput.value;
+  const categoryArray = categoryInputValue.split(',').map((category) => category.trim());
+
+  categoryArray.forEach((category) => {
+    if (category) {
+      categories.push(category);
+    }
+  });
+
+  drawWheel(0);
+  spinButton.disabled = false;
   categoryInput.value = '';
 });
+
 
 //spin it!
 spinButton.addEventListener('click', spinWheel);
